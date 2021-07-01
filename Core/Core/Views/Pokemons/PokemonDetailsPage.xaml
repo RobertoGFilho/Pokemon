@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PokemonDetailsXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:models="clr-namespace:Core.Models"
+                          xmlns:views="clr-namespace:Core.Views"
+                          xmlns:viewModels="clr-namespace:Core.ViewModels"
+                          xmlns:extensions="clr-namespace:Core.Extensions"
+                          x:DataType="viewModels:PokemonDetailsViewModel"
+                          x:Class="Core.Views.PokemonDetailsPage"
+                          BackgroundColor="Transparent"
+                          Shell.PresentationMode="Modal">
+
+    <!--content-->
+    <Frame Margin="24"
+           BackgroundColor="WhiteSmoke"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HasShadow="True"
+           CornerRadius="12"
+           WidthRequest="400">
+        <ScrollView>
+            <StackLayout Spacing="9">
+
+                <!--#region Title -->
+                <Grid ColumnDefinitions="*,auto"
+                      BackgroundColor="WhiteSmoke">
+                    
+                    <!--#region Name-->
+                    <Label Text="{Binding Business.Model.Name, Mode=OneWay}"
+                           Style="{StaticResource TitleStyle}"
+                           VerticalOptions="Center"
+                           LineBreakMode="WordWrap"
+                           Grid.Column="0"/>
+                    <!--#endregion-->
+
+                    <!--#region Image -->
+                    <Image Source="{Binding Business.Model.Image, Mode=OneWay}"
+                           IsAnimationPlaying="True"
+                           Grid.Column="1"/>
+                    <!--#endregion-->
+                    
+                </Grid>
+
+                <BoxView HeightRequest="1" BackgroundColor="White" Margin="0,12,0,6"/>
+                <!--#endregion-->
+
+                <Grid ColumnDefinitions="*,*,*"
+                      BackgroundColor="WhiteSmoke">
+                    <!--#region Id -->
+                    <StackLayout Grid.Column="0">
+                        <Label Text="{extensions:Translate id}" FontSize="Caption"/>
+                        <Label Text="{Binding Business.Model.PokemonId, Mode=OneWay}"
+                               Style="{StaticResource TitleStyle}"
+                               LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <!--#region Height -->
+                    <StackLayout Grid.Column="1">
+                        <Label Text="{extensions:Translate height}" FontSize="Caption"/>
+                        <Label Text="{Binding Business.Model.Height, Mode=OneWay}"
+                           Style="{StaticResource TitleStyle}"
+                           LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                    <!--#endregion-->
+
+                    <!--#region Weight -->
+                    <StackLayout Grid.Column="2">
+                        <Label Text="{extensions:Translate weight}" FontSize="Caption"/>
+                        <Label Text="{Binding Business.Model.Weight, Mode=OneWay}"
+                           Style="{StaticResource TitleStyle}"
+                           LineBreakMode="WordWrap"/>
+                    </StackLayout>
+                    <!--#endregion-->
+                </Grid>
+                
+                <!--#region Types -->
+                <Label Text="{extensions:Translate pokemon-types}" FontSize="Caption"/>
+                <StackLayout BindableLayout.ItemsSource="{Binding Business.Model.PokemonTypes}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:PokemonTypePokemon">
+                            <Frame Margin="0,3"
+                                   BackgroundColor="WhiteSmoke"
+                                   BorderColor="White">
+                                <Label Text="{Binding PokemonType.Name, Mode=OneWay}"
+                               Style="{StaticResource TitleStyle}"/>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <!--#endregion-->
+
+                <!--#region Close -->
+                <Button Text="{extensions:Translate close}"
+                        Command="{Binding BackCommand, Mode=OneWay}"
+                        BackgroundColor="White"
+                        CornerRadius="12"/>
+                <!--#endregion-->
+
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+
+</views:PokemonDetailsXaml>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PokemonTypesXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:views="clr-namespace:Core.Views" 
+                         xmlns:viewmodels="clr-namespace:Core.ViewModels" 
+                         xmlns:business="clr-namespace:Core.Business"
+                         xmlns:extensions="clr-namespace:Core.Extensions"
+                         x:DataType="viewmodels:PokemonTypesViewModel"
+                         x:Class="Core.Views.PokemonTypesPage"
+                         Title="{extensions:Translate pokemon-types}">
+
+    <CollectionView ItemsSource="{Binding Items}"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                    Margin="0,12">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid x:DataType="business:PokemonTypeBusiness">
+                    <!--#region Name -->
+                    <Frame Margin="9,3">
+                        <Label Text="{Binding Model.Name, Mode=OneWay}"
+                               Style="{StaticResource TitleStyle}"/>
+                    </Frame>
+                    <!--#endregion-->
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</views:PokemonTypesXaml>

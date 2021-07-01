@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Core.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--Alert colors-->
+            <Color x:Key="AlertColor">OrangeRed</Color>
+
+            <!-- Light colors -->
+            <Color x:Key="BackgroundColorLight">White</Color>
+            <Color x:Key="TextColorLight">DarkSlateGray</Color>
+            <Color x:Key="TitleColorLight">Black</Color>
+            <Color x:Key="BorderColorLight">WhiteSmoke</Color>
+
+            <!-- Dark colors -->
+            <Color x:Key="BackgroundColorDark">Black</Color>
+            <Color x:Key="TextColorDark">Gray</Color>
+            <Color x:Key="TitleColorDark">White</Color>
+            <Color x:Key="BorderColorDark">DarkSlateGray</Color>
+            
+            <!--Page -->
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}"/>
+            </Style>
+            
+            <!--Labels-->
+            <Style TargetType="Label" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColorLight}}"/>
+            </Style>
+
+            <!--Editor-->
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TitleColorDark}, Light={StaticResource TitleColorLight}}"/>
+            </Style>
+
+            <!--Picker-->
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TitleColorDark}, Light={StaticResource TitleColorLight}}"/>
+            </Style>
+            
+            <!--Title-->
+            <Style TargetType="Label" x:Key="TitleStyle">
+                <Setter Property="FontSize" Value="Title"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TitleColorDark}, Light={StaticResource TitleColorLight}}"/>
+            </Style>
+            
+            <!--Star Image Labels-->
+            <Style TargetType="Label" x:Key="StarLabelStyle">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontFamily" Value="Material"/>
+                <Setter Property="Text" Value="&#xE838;"/>
+                <Setter Property="TextColor" Value="Green"/>
+            </Style>
+            
+            <!--Entries-->
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TitleColorDark}, Light={StaticResource TitleColorLight}}"/>
+            </Style>
+
+            <!-- Font images-->
+            <FontImage x:Key="Add" FontFamily="Material" Glyph="&#xE145;" />
+            <FontImage x:Key="Person" FontFamily="Material" Glyph="&#xE7FD;" />
+            <FontImage x:Key="People" FontFamily="Material" Glyph="&#xE7FB;" />
+            <FontImage x:Key="Refresh" FontFamily="Material" Glyph="&#xE042;" />
+            <FontImage x:Key="Remove" FontFamily="IcoFont" Glyph="&#xEE09;" />
+            <FontImage x:Key="Search" FontFamily="Material" Glyph="&#xE8B6;" Color="Black" />
+            <FontImage x:Key="Favorite" FontFamily="Material" Glyph="&#xE83A;" Color="Green"  />
+            <FontImage x:Key="Settings" FontFamily="Material" Glyph="&#xE8B8;" />
+
+            <!--buttons-->
+            <Style TargetType="Button" x:Key="WhatsApp">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}"/>
+                <Setter Property="FontFamily" Value="IcoFont"/>
+                <Setter Property="Text" Value="&#xE957;"/>
+                <Setter Property="FontSize" Value="35"/>
+                <Setter Property="TextColor" Value="Green"/>
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="CornerRadius" Value="30"/>
+            </Style>
+            
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BorderColorDark}, Light={StaticResource BorderColorLight}}"/>
+                <Setter Property="CornerRadius" Value="2"/>
+            </Style>
+
+            <!--Frames -->
+            <Style TargetType="Frame">
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource BorderColorDark}, Light={StaticResource BorderColorLight}}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}"/>
+            </Style>
+
+            <!--Grid-->
+            <Style TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

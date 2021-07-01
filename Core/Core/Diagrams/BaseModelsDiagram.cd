@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.Models.BaseModel">
+    <Position X="1.5" Y="1.25" Width="1.5" />
+    <Members>
+      <Field Name="deleted" Hidden="true" />
+      <Field Name="id" Hidden="true" />
+      <Field Name="updatedAt" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAAAgAEAAAABAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\BaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

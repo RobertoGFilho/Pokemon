@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.Models.Contact">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="email" Hidden="true" />
+      <Field Name="group" Hidden="true" />
+      <Field Name="groupId" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+      <Field Name="note" Hidden="true" />
+      <Field Name="phone" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QQAAAEAEACAABAAgAAAAAAQAAAAEAAAgAAAAIAEAAAA=</HashCode>
+      <FileName>Models\Contact.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Group" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Core.Models.ContactGroup">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="contacts" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ContactGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Models.Settings">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="darkTheme" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

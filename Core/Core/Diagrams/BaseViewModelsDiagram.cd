@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.ViewModels.BaseCollectionViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="8.75" Y="5.75" Width="5" />
+    <Members>
+      <Field Name="selectedItem" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgACAAAgQEABAACAAAAAAAAABAAAAAQIAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseDetailsCollectionViewModel&lt;TModel, TBusiness, TItemDetailsViewModel, TDataManager&gt;">
+    <Position X="8.5" Y="11" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseDetailsCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseEditCollectionViewModel&lt;TModel, TBusiness, TEditItemViewModel, TDataManager&gt;">
+    <Position X="2.5" Y="10.75" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseEditCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseEditDetailsCollectionViewModel&lt;TModel, TBusiness, TEditItemViewModel, TItemDetailsViewModel, TDataManager&gt;">
+    <Position X="2.75" Y="14.5" Width="5" />
+    <InheritanceLine Type="Core.ViewModels.BaseEditCollectionViewModel&lt;TModel, TBusiness, TEditItemViewModel, TDataManager&gt;" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.125" Y="13.204" />
+        <Point X="5.125" Y="14.376" />
+        <Point X="5.125" Y="14.376" />
+        <Point X="5.125" Y="14.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseEditDetailsCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseEditItemViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="15" Y="8" Width="4.25" />
+    <Members>
+      <Field Name="cancelCommand" Hidden="true" />
+      <Field Name="saveCommand" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAEAAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseEditItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseItemDetailsViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="20" Y="8" Width="4.5" />
+    <Members>
+      <Field Name="editCommand" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseItemDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseItemViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="17.25" Y="5.75" Width="4" />
+    <Members>
+      <Field Name="business" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseSelectionViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="15" Y="11.25" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseSelectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseViewModel">
+    <Position X="14.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.ViewModels.BaseDataViewModel&lt;TModel, TBusiness, TDataManager&gt;">
+    <Position X="13.5" Y="3.5" Width="3.5" />
+    <Members>
+      <Field Name="dataManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Bases\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

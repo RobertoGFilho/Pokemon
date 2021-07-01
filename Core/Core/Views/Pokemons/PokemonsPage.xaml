@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PokemonsXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:views="clr-namespace:Core.Views" 
+                    xmlns:viewmodels="clr-namespace:Core.ViewModels" 
+                    xmlns:business="clr-namespace:Core.Business"
+                    xmlns:extensions="clr-namespace:Core.Extensions"
+                    x:DataType="viewmodels:PokemonsViewModel"
+                    x:Class="Core.Views.PokemonsPage"
+                    Title="{Binding Title, Mode=OneWay}">
+
+    <views:PokemonsXaml.ToolbarItems>
+        <ToolbarItem Command="{Binding SelectPokemonTypeCommand}" IconImageSource="{StaticResource Search}"/>
+    </views:PokemonsXaml.ToolbarItems>
+
+    <StackLayout Spacing="12"
+                 Margin="0,12">
+        
+        <!--#region remove filter -->
+        <Button Text="remove filter"
+                Command="{Binding RemoveFilterPokemonTypeCommand, Mode=OneWay}"
+                IsVisible="{Binding HasSelectedPokemonType, Mode=OneWay}"
+                HorizontalOptions="End"
+                BackgroundColor="White"
+                BorderColor="WhiteSmoke"
+                BorderWidth="1"
+                Margin="12,0"
+                CornerRadius="6"/>
+        <!--#endregion-->
+        
+        <!--content-->
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                     IsEnabled="False"
+                     Command="{Binding RefreshCommand, Mode=OneWay}" >
+            <CollectionView ItemsSource="{Binding Items}"
+                            RemainingItemsThreshold="6"
+                            
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                    SelectionChangedCommand="{Binding SelectCommand}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView x:DataType="business:PokemonBusiness">
+
+                            <SwipeView.RightItems>
+                                <SwipeItem IconImageSource="{StaticResource Favorite}"
+                                       BackgroundColor="White"
+                                       Invoked="OnAddRemoveFavorite"/>
+                            </SwipeView.RightItems>
+
+                            <!--content-->
+                            <Grid>
+                                <Frame Margin="9,3">
+                                    <Grid ColumnDefinitions="auto,*, auto">
+
+                                        <!--#region Image -->
+                                        <Frame Grid.Column="0"
+                                           CornerRadius="35"
+                                           HeightRequest="70"
+                                           WidthRequest="70"
+                                           Padding="1">
+                                            <Image Source="{Binding Model.Image, Mode=OneWay}"
+                                               IsAnimationPlaying="True"/>
+                                        </Frame>
+                                        <!--#endregion-->
+
+                                        <!--#region Name -->
+                                        <Label Text="{Binding Model.Name, Mode=OneWay}"
+                                       Style="{StaticResource TitleStyle}"
+                                       LineBreakMode="TailTruncation"
+                                       VerticalTextAlignment="Center"
+                                       Grid.Column="1"/>
+                                        <!--#endregion-->
+
+                                        <!--#region Favorite -->
+                                        <Label Style="{StaticResource StarLabelStyle}" 
+                                           IsVisible="{Binding Model.Favorite, Mode=OneWay}"
+                                           VerticalOptions="Center"
+                                           Grid.Column="2"/>
+
+                                        <!--#endregion-->
+
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+
+</views:PokemonsXaml>
