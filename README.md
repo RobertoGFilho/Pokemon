@@ -1,7 +1,8 @@
 # Pokemons
 Sample application developed in Xamarin Forms with dynamic load data consumed REST API https://pokeapi.co Available for the Android platform, iOS and Windows
 
-![Android Emulator - t90_5554 02_07_2021 10_11_09](https://user-images.githubusercontent.com/68563526/124279780-42bb3900-db1e-11eb-953f-d424d30cf0e5.png)
+![Screenshot](https://user-images.githubusercontent.com/68563526/124324130-d90c5080-db58-11eb-994d-13282717a84d.png)
+
 
 <h2>languages</h2>
 
