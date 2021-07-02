@@ -13,8 +13,7 @@
         <ToolbarItem Command="{Binding SelectPokemonTypeCommand}" IconImageSource="{StaticResource Search}"/>
     </views:PokemonsXaml.ToolbarItems>
 
-    <StackLayout Spacing="12"
-                 Margin="0,12">
+    <StackLayout Spacing="12" Margin="0,12">
         
         <!--#region remove filter -->
         <Button Text="{extensions:Translate removeFilter}"
@@ -37,23 +36,20 @@
         <!--content-->
         <CollectionView ItemsSource="{Binding Items}"
                         VerticalOptions="FillAndExpand"
-                            RemainingItemsThreshold="1"
-                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand, Mode=OneWay}"
-                            SelectionMode="Single"
-                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                            SelectionChangedCommand="{Binding SelectCommand}">
+                        RemainingItemsThreshold="1"
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand, Mode=OneWay}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                        SelectionChangedCommand="{Binding SelectCommand}">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView x:DataType="business:PokemonBusiness">
-
                         <SwipeView.RightItems>
                             <SwipeItem IconImageSource="{StaticResource Favorite}"
                                        BackgroundColor="White"
                                        Invoked="OnAddRemoveFavorite"/>
                         </SwipeView.RightItems>
-
-                        <!--content-->
                         <Grid>
                             <Frame Margin="9,3">
                                 <Grid ColumnDefinitions="auto,*, auto">
@@ -104,6 +100,7 @@
                 Margin="12,0"
                 CornerRadius="6"/>
         <!--#endregion-->
+        
     </StackLayout>
 
 </views:PokemonsXaml>

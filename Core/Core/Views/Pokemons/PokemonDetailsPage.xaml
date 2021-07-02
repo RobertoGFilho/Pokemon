@@ -10,7 +10,6 @@
                           BackgroundColor="Transparent"
                           Shell.PresentationMode="Modal">
 
-    <!--content-->
     <Frame Margin="24"
            BackgroundColor="WhiteSmoke"
            VerticalOptions="Center"
@@ -72,6 +71,7 @@
                            LineBreakMode="WordWrap"/>
                     </StackLayout>
                     <!--#endregion-->
+                    
                 </Grid>
                 
                 <!--#region Types -->
@@ -83,7 +83,7 @@
                                    BackgroundColor="WhiteSmoke"
                                    BorderColor="White">
                                 <Label Text="{Binding PokemonType.Name, Mode=OneWay}"
-                               Style="{StaticResource TitleStyle}"/>
+                                       Style="{StaticResource TitleStyle}"/>
                             </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
