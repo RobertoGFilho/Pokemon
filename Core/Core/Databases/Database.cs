@@ -47,7 +47,7 @@ namespace Core.Databases
 
         public void Initialize()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.Migrate();
         }
 

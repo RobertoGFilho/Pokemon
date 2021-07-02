@@ -30,12 +30,11 @@ namespace Core.ViewModels
                 OnPropertyChanged(nameof(HasSelectedPokemonType));
             }
         }
-
         public bool HasSelectedPokemonType => (SelectedPokemonType != null);
-
         public ICommand SelectPokemonTypeCommand { get; }
         public ICommand FilterPokemonTypeCommand { get; }
         public ICommand RemoveFilterPokemonTypeCommand { get; }
+        public ICommand LoadMoreCommand { get; }
 
         public PokemonsViewModel()
         {
@@ -43,8 +42,39 @@ namespace Core.ViewModels
             SelectPokemonTypeCommand = new AsyncCommand(OnSelectPokemonType);
             FilterPokemonTypeCommand = new AsyncCommand<PokemonTypeBusiness>(OnFilterPokemonType);
             RemoveFilterPokemonTypeCommand = new AsyncCommand(OnRemoveFilterPokemon);
+            LoadMoreCommand = new AsyncCommand(OnLoadMore);
         }
 
+        private async Task OnLoadMore()
+        {
+            try
+            {
+                if (IsBusy || HasSelectedPokemonType)
+                    return;
+
+                IsBusy = true;
+                await Task.Delay(100);
+
+                var models = await DataManager.GetPokemons(Items.Count);
+
+                if (models.Count() > 0)
+                {
+                    var newItems = new List<PokemonBusiness>();
+
+                    foreach (var model in models)
+                        newItems.Add(new PokemonBusiness { Model = model });
+
+                    Items.AddRange(newItems);
+                }
+
+                IsBusy = false;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                IsBusy = false;
+            }
+        }
 
         public async Task OnAddRemoveFavorite(PokemonBusiness pokemonBusiness)
         {
@@ -114,11 +144,6 @@ namespace Core.ViewModels
         {
             var pokemonTypesViewModel = await Navigation.GoToAsync<PokemonTypesViewModel>();
             pokemonTypesViewModel.CallBackCommand = FilterPokemonTypeCommand;
-        }
-
-        protected override Task OnRefresh()
-        {
-            return base.OnRefresh();
         }
 
     }

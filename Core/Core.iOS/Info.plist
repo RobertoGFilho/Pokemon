@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pokedex</string>
+	<string>Pokemons</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.companyname.Core</string>
 	<key>CFBundleVersion</key>

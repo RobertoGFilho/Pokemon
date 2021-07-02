@@ -118,33 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Fechar</value>
   </data>
   <data name="height" xml:space="preserve">
-    <value>Height</value>
+    <value>Altura</value>
   </data>
   <data name="id" xml:space="preserve">
-    <value>Id</value>
+    <value>Identificaçao</value>
+  </data>
+  <data name="loadMore" xml:space="preserve">
+    <value>Carregar Mais</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nome</value>
   </data>
-  <data name="pokemon-types" xml:space="preserve">
-    <value>Pokemon Types</value>
+  <data name="pokemonTypes" xml:space="preserve">
+    <value>Tipos de Pokemons</value>
   </data>
-  <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="theme" xml:space="preserve">
-    <value>Theme</value>
+  <data name="removeFilter" xml:space="preserve">
+    <value>Remover Filtro</value>
   </data>
   <data name="weight" xml:space="preserve">
-    <value>Weight</value>
+    <value>Peso</value>
   </data>
 </root>

@@ -9,19 +9,47 @@ namespace Core.Databases
 {
     public class PokemonsManager : BaseManager<Pokemon>
     {
-        public override async Task<IQueryable<Pokemon>> GetAll()
+        public override Task<IQueryable<Pokemon>> GetAll()
         {
-            if (Database.Pokemons.Count() == 0)
-            {
-                var newPokemons = await Service.GetPokemonsAsync(0, 20);
+            return GetPokemons(0);
+        }
 
-                if (newPokemons?.Count > 0)
+        public override IQueryable<Pokemon> GetIncludes(IQueryable<Pokemon> entities)
+        {
+            return entities
+                .Include(pokemon => pokemon.PokemonTypes)
+                    .ThenInclude(type => type.PokemonType);
+        }
+
+        public IQueryable<Pokemon> GetPokemonsFromType(Guid pokemonTypeId)
+        {
+            var pokemons = Database.Pokemons
+                .Where(p => p.PokemonTypes.Any(a => a.PokemonTypeId == pokemonTypeId))
+                .OrderBy(o=> o.Name);
+            
+            return GetIncludes(pokemons);
+        }
+
+        public async Task<IQueryable<Pokemon>> GetPokemons(int skip)
+        {
+            int limit = 10;
+            
+            var pokemons = Database.Pokemons
+                .OrderBy(o => o.PokemonId)
+                .Skip(skip)
+                .Take(limit);
+
+            if (pokemons.Count() == 0)
+            {
+                pokemons = (await Service.GetPokemonsAsync(skip, limit)).AsQueryable();
+
+                if (pokemons.Count() > 0)
                 {
-                    Database.Pokemons.AddRange(newPokemons);
+                    Database.Pokemons.AddRange(pokemons);
                     var pokemonTypesManager = new PokemonTypesManager();
                     var pokemonTypes = await pokemonTypesManager.GetAll();
 
-                    foreach (var pokemon in newPokemons)
+                    foreach (var pokemon in pokemons)
                     {
                         var pokemonDetails = await Service.GetPokemonDetailsAsync(pokemon.Name);
 
@@ -56,25 +84,8 @@ namespace Core.Databases
                 }
             }
 
-            return (await base.GetAll()).OrderBy(o => o.Name);
-        }
-
-        public override IQueryable<Pokemon> GetIncludes(IQueryable<Pokemon> entities)
-        {
-            return entities
-                .Include(pokemon => pokemon.PokemonTypes)
-                    .ThenInclude(type => type.PokemonType);
-        }
-
-        public IQueryable<Pokemon> GetPokemonsFromType(Guid pokemonTypeId)
-        {
-            var pokemons = Database.Pokemons
-                .Where(p => p.PokemonTypes.Any(a => a.PokemonTypeId == pokemonTypeId))
-                .OrderBy(o=> o.Name);
-            
             return GetIncludes(pokemons);
         }
-
 
     }
 }

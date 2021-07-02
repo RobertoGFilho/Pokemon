@@ -120,29 +120,23 @@
   <data name="close" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="dark" xml:space="preserve">
-    <value>Dark</value>
-  </data>
   <data name="height" xml:space="preserve">
     <value>Height</value>
   </data>
   <data name="id" xml:space="preserve">
     <value>Id</value>
   </data>
+  <data name="loadMore" xml:space="preserve">
+    <value>Load More</value>
+  </data>
   <data name="name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="pokemon-types" xml:space="preserve">
+  <data name="pokemonTypes" xml:space="preserve">
     <value>Pokemon Types</value>
   </data>
-  <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="theme" xml:space="preserve">
-    <value>Theme</value>
+  <data name="removeFilter" xml:space="preserve">
+    <value>Remove Filter</value>
   </data>
   <data name="weight" xml:space="preserve">
     <value>Weight</value>

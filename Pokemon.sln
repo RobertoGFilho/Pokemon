@@ -9,9 +9,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Android", "Core\Core.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.iOS", "Core\Core.iOS\Core.iOS.csproj", "{52B7E84B-736B-4EA8-A079-0C2DBBE61BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core\Core.csproj", "{A406C430-D3C4-445F-9FD9-7D17358C288D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core\Core.csproj", "{A406C430-D3C4-445F-9FD9-7D17358C288D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDatabaseConfiguration", "CoreDatabaseConfiguration\CoreDatabaseConfiguration.csproj", "{2ED152C3-CEDB-4180-BC43-CF07995FBA8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDatabaseConfiguration", "CoreDatabaseConfiguration\CoreDatabaseConfiguration.csproj", "{2ED152C3-CEDB-4180-BC43-CF07995FBA8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{A1B4538C-0268-4D33-BE0D-6BC5D4254EBB}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186753.png = ..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186753.png
+		..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186777.png = ..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186777.png
+		..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186797.png = ..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186797.png
+		..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186828.png = ..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186828.png
+		..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186838.png = ..\..\..\..\OneDrive - WBR Consultoria S.A\Área de Trabalho\Screenshot_1625186838.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

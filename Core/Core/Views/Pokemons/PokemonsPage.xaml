@@ -17,7 +17,7 @@
                  Margin="0,12">
         
         <!--#region remove filter -->
-        <Button Text="remove filter"
+        <Button Text="{extensions:Translate removeFilter}"
                 Command="{Binding RemoveFilterPokemonTypeCommand, Mode=OneWay}"
                 IsVisible="{Binding HasSelectedPokemonType, Mode=OneWay}"
                 HorizontalOptions="End"
@@ -27,68 +27,83 @@
                 Margin="12,0"
                 CornerRadius="6"/>
         <!--#endregion-->
-        
+
+        <!--#region indicator -->
+        <ActivityIndicator IsRunning="{Binding IsBusy, Mode=OneWay}"
+                           IsVisible="{Binding IsBusy, Mode=OneWay}" 
+                           Color="Black"/>
+        <!--#endregion-->
+
         <!--content-->
-        <RefreshView IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
-                     IsEnabled="False"
-                     Command="{Binding RefreshCommand, Mode=OneWay}" >
-            <CollectionView ItemsSource="{Binding Items}"
-                            RemainingItemsThreshold="6"
-                            
-                    SelectionMode="Single"
-                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                    SelectionChangedCommand="{Binding SelectCommand}">
+        <CollectionView ItemsSource="{Binding Items}"
+                        VerticalOptions="FillAndExpand"
+                            RemainingItemsThreshold="1"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand, Mode=OneWay}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectCommand}">
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <SwipeView x:DataType="business:PokemonBusiness">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView x:DataType="business:PokemonBusiness">
 
-                            <SwipeView.RightItems>
-                                <SwipeItem IconImageSource="{StaticResource Favorite}"
+                        <SwipeView.RightItems>
+                            <SwipeItem IconImageSource="{StaticResource Favorite}"
                                        BackgroundColor="White"
                                        Invoked="OnAddRemoveFavorite"/>
-                            </SwipeView.RightItems>
+                        </SwipeView.RightItems>
 
-                            <!--content-->
-                            <Grid>
-                                <Frame Margin="9,3">
-                                    <Grid ColumnDefinitions="auto,*, auto">
+                        <!--content-->
+                        <Grid>
+                            <Frame Margin="9,3">
+                                <Grid ColumnDefinitions="auto,*, auto">
 
-                                        <!--#region Image -->
-                                        <Frame Grid.Column="0"
-                                           CornerRadius="35"
-                                           HeightRequest="70"
-                                           WidthRequest="70"
-                                           Padding="1">
-                                            <Image Source="{Binding Model.Image, Mode=OneWay}"
-                                               IsAnimationPlaying="True"/>
-                                        </Frame>
-                                        <!--#endregion-->
+                                    <!--#region Image -->
+                                    <Frame Grid.Column="0"
+                                               CornerRadius="35"
+                                               HeightRequest="70"
+                                               WidthRequest="70"
+                                               Padding="1">
+                                        <Image Source="{Binding Model.Image, Mode=OneWay}"
+                                                    IsAnimationPlaying="True"/>
+                                    </Frame>
+                                    <!--#endregion-->
 
-                                        <!--#region Name -->
-                                        <Label Text="{Binding Model.Name, Mode=OneWay}"
-                                       Style="{StaticResource TitleStyle}"
-                                       LineBreakMode="TailTruncation"
-                                       VerticalTextAlignment="Center"
-                                       Grid.Column="1"/>
-                                        <!--#endregion-->
+                                    <!--#region Name -->
+                                    <Label Text="{Binding Model.Name, Mode=OneWay}"
+                                               Style="{StaticResource TitleStyle}"
+                                               LineBreakMode="TailTruncation"
+                                               VerticalTextAlignment="Center"
+                                               Grid.Column="1"/>
+                                    <!--#endregion-->
 
-                                        <!--#region Favorite -->
-                                        <Label Style="{StaticResource StarLabelStyle}" 
-                                           IsVisible="{Binding Model.Favorite, Mode=OneWay}"
-                                           VerticalOptions="Center"
-                                           Grid.Column="2"/>
+                                    <!--#region Favorite -->
+                                    <Label Style="{StaticResource StarLabelStyle}" 
+                                               IsVisible="{Binding Model.Favorite, Mode=OneWay}"
+                                               VerticalOptions="Center"
+                                               Grid.Column="2"/>
 
-                                        <!--#endregion-->
+                                    <!--#endregion-->
 
-                                    </Grid>
-                                </Frame>
-                            </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--#region load more for UWP-->
+        <Button Text="{extensions:Translate loadMore}"
+                Command="{Binding LoadMoreCommand, Mode=OneWay}"
+                IsVisible="{OnPlatform Default=false, UWP=true}"
+                HorizontalOptions="End"
+                BackgroundColor="White"
+                BorderColor="WhiteSmoke"
+                BorderWidth="1"
+                Margin="12,0"
+                CornerRadius="6"/>
+        <!--#endregion-->
     </StackLayout>
 
 </views:PokemonsXaml>

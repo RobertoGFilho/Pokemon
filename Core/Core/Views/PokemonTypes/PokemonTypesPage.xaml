@@ -7,7 +7,7 @@
                          xmlns:extensions="clr-namespace:Core.Extensions"
                          x:DataType="viewmodels:PokemonTypesViewModel"
                          x:Class="Core.Views.PokemonTypesPage"
-                         Title="{extensions:Translate pokemon-types}">
+                         Title="{extensions:Translate pokemonTypes}">
 
     <CollectionView ItemsSource="{Binding Items}"
                     SelectionMode="Single"

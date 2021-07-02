@@ -70,15 +70,6 @@ namespace Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark.
-        /// </summary>
-        internal static string dark {
-            get {
-                return ResourceManager.GetString("dark", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string height {
@@ -97,6 +88,15 @@ namespace Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load More.
+        /// </summary>
+        internal static string loadMore {
+            get {
+                return ResourceManager.GetString("loadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string name {
@@ -108,36 +108,18 @@ namespace Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Pokemon Types.
         /// </summary>
-        internal static string pokemon_types {
+        internal static string pokemonTypes {
             get {
-                return ResourceManager.GetString("pokemon-types", resourceCulture);
+                return ResourceManager.GetString("pokemonTypes", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh.
+        ///   Looks up a localized string similar to Remove Filter.
         /// </summary>
-        internal static string refresh {
+        internal static string removeFilter {
             get {
-                return ResourceManager.GetString("refresh", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        internal static string save {
-            get {
-                return ResourceManager.GetString("save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Theme.
-        /// </summary>
-        internal static string theme {
-            get {
-                return ResourceManager.GetString("theme", resourceCulture);
+                return ResourceManager.GetString("removeFilter", resourceCulture);
             }
         }
         

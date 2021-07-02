@@ -75,7 +75,7 @@
                 </Grid>
                 
                 <!--#region Types -->
-                <Label Text="{extensions:Translate pokemon-types}" FontSize="Caption"/>
+                <Label Text="{extensions:Translate pokemonTypes}" FontSize="Caption"/>
                 <StackLayout BindableLayout.ItemsSource="{Binding Business.Model.PokemonTypes}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="models:PokemonTypePokemon">
