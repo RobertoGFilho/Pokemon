@@ -3,7 +3,7 @@ Aplicação desenvolvida em Xamarin Forms, consumindo API REST https://pokeapi.c
 
 ![Screenshot](https://user-images.githubusercontent.com/68563526/124325397-e591a880-db5a-11eb-8835-c9cdbb7651e4.png)
 
-<h2>Bibliotecas</h2>
+<h2>🛠 Bibliotecas</h2>
 
 * Microsoft.EntityFrameworkCore.Sqlite : camada de abstração do banco de dados e C# utilizado junto com linq;
 * Microsoft.EntityFrameworkCore.Tools : usado para migração de dados;
