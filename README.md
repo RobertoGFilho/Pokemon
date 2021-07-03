@@ -20,12 +20,12 @@ A extensão <a href="https://pt-br.reactjs.org/">Multilingual App Toolkit</a> fo
 
 
 <h2>Estatrégia de Paginação de Dados</h2>
-Página de dados de 10 registros são carregados automaticamente do banco de dados local e em seguida novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
+Página de dados de 10 registros são carregados automaticamente do banco de dados local após todos os dados serem exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
 
 <h2>Modelos</h2>
 Três classes principais Pokemon, PokemonTypes e PokemonTypesPokemon sendo que essa ultíma representa a ligação N:N entre as duas primeiras
-
-<img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png">
+</br>
+<p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></P
 
 
 
