@@ -5,7 +5,7 @@ Aplicação desenvolvida em Xamarin Forms, consumindo <b>API REST</b> https://po
 
 <h2>Bibliotecas</h2>
 
-* Microsoft.EntityFrameworkCore.Sqlite : camada de abstração do banco de dados e C# utilizado junto com linq;
+* Microsoft.EntityFrameworkCore.Sqlite : camada de abstração do banco de dados;
 * Microsoft.EntityFrameworkCore.Tools : usado para migração de dados;
 * Refractored.MvvmHelpers : usado para databinding e commandos síncronos e assíncronos;
 * Xamarin.Essentials : verificação de conecxão da Internet;
@@ -23,18 +23,61 @@ Três classes principais <b>Pokemon, PokemonTypes e PokemonTypesPokemon</b> send
 <p></p>
 <p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></p>
 
+<h2>Business</h2>
+Utilizada entre a model e a viewModel essa camada é responsável pela validação de dados e novas regras de negócio;
+<p></p>
+
+    public class BaseBusiness<TModel> : ObservableObject where TModel : BaseModel, new()
+    {
+        ...
+        public IList<ValidationFailure> Erros { get; set; }
+        public AbstractValidator<TModel> Validator { get; set; }
+        ...
+    }
+
+<h2>View Models</h2>
+Nessa camada foram utilizadas técnicas de herança, generics <b>combinadas</b>, para definir padrões de comportamentos e o máximo de reaproveitamento do código.
+<p></p>
+
+    public abstract class BaseCollectionViewModel<TModel, TBusiness, TDataManager> : 
+	BaseDataViewModel<TModel, TBusiness, TDataManager> where TModel : BaseModel, new() where 
+	TBusiness : BaseBusiness<TModel>, new() where 
+	TDataManager : BaseManager<TModel>, new()
+    { ... }
+    
+<h2>Views</h2>
+
+
+    
+<h2>Database</h2>
+Foi utilizado o <b>Sqlite</b> e Entity Framework como estratégia de cache de daods.   
+
+<h2>Migrações</h2>
+Sempre que a estruturas das models são alteradas, adicionando ou removendo campos ou novas models, a migração será executada na inicialização do apreestruturand o banco de dados;
+<p></p>
+
+    public class Database : DbContext
+    {
+        ...
+        public void Initialize()
+        {
+            //Database.EnsureDeleted();
+            Database.Migrate();
+        }
+    }
+
 <h2>Paginação</h2>
 Estratégia utilizada para carregamento dos dados de forma automática, <b>por página de dados</b>, apartir do banco de dados local após todos os registros exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
 
 <h2>Image Font</h2>
 
-Arquivos de fontes true type utilizado para exibir icones ao inves de images na barra de ações
+Estratégia utilizada para usar icones, na barra de ações, apartir de arquivos fontes true type. 
 * icofont.ttf;
 * material.ttf;
 
 <h2>API REST</h2>
 
-Classe Service responsável por baixar e deserializar arquivo jason do endpoint https://pokeapi.co/api/v2/
+Classe responsável por baixar e deserializar arquivo jason do endpoint https://pokeapi.co/api/v2/
 
     public static class Service
     {
@@ -78,7 +121,7 @@ Classe Service responsável por baixar e deserializar arquivo jason do endpoint 
         
     }
     
-<h2>Injeção de Dependencia</h2>
+<h2>Navegação</h2>
 
 Serviço de navegação de páginas "views" através da navegação de view models
 
@@ -114,11 +157,7 @@ Serviço de navegação de páginas "views" através da navegação de view mode
         DependencyService.Get<Interfaces.INavigation>(DependencyFetchTarget.GlobalInstance);
     }
 
-<h2>C# Generics | Herança</h2>
-
-<b>As duas técnicas combinadas</b>, foram utilizadas para definir padrões de comportamentos na arquitetura do app e permitir o máximo de reaproveitamento do código.
-
 <h2>Conclusão</h2>
 
-A finalidade desse projeto é demostrar as boas práticas de programação em aplicações Xamarin Forms.
+O objetivo desse projeto é demostrar as boas práticas de programação em aplicações Xamarin Forms.
 
