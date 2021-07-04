@@ -114,7 +114,7 @@ Serviço de navegação de páginas "views" através da navegação de view mode
         DependencyService.Get<Interfaces.INavigation>(DependencyFetchTarget.GlobalInstance);
     }
 
-<h2>C# Generics com Herança</h2>
+<h2>C# Generics | Herança</h2>
 
 <b>As duas técnicas combinadas</b>, foram utilizadas para definir padrões de comportamentos na arquitetura do app e permitir o máximo de reaproveitamento do código.
 
