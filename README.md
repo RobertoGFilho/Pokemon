@@ -224,5 +224,5 @@ Injecting the "views" page navigation service through view model navigation
 
 <h2>Conclusion</h2>
 
-The focus of this project is to demonstrate good programming practices in Xamarin Forms applications.
+Focus on best programming practices in Xamarin Forms applications.
 
