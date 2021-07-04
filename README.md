@@ -1,5 +1,5 @@
 # Pokemon Collection
-Aplicação desenvolvida em Xamarin Forms, consumindo API REST https://pokeapi.co com padão de Design MVVM e princípios do CLEAN CODE. Disponível nas plataformas  Android, iOS e Windows
+Aplicação desenvolvida em Xamarin Forms, consumindo <b>API REST</b> https://pokeapi.co com padão de Design <b>MVVM</b> e princípios do <b>CLEAN CODE</b>. Disponível nas plataformas  Android, iOS e Windows
 
 ![Screenshot](https://user-images.githubusercontent.com/68563526/124325397-e591a880-db5a-11eb-8835-c9cdbb7651e4.png)
 
@@ -17,13 +17,13 @@ A extensão <a href="https://pt-br.reactjs.org/">Multilingual App Toolkit</a> fo
 * Inglês;
 * Português Brasileiro;
 
-<h2>Estatrégia de paginação de dados</h2>
-Página de dados de 10 registros são carregados automaticamente do banco de dados local após todos os dados serem exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
+<h2>Paginação de dados</h2>
+A estratégia de paginação de dados foi utilizada para carregamento dos dados de forma automática do banco de dados local após todos os dados serem exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
 
 <h2>Modelos</h2>
-Três classes principais Pokemon, PokemonTypes e PokemonTypesPokemon sendo que essa ultíma representa a ligação N:N entre as duas primeiras
+Três classes principais <b>Pokemon, PokemonTypes e PokemonTypesPokemon</b> sendo que essa ultíma representa a ligação N:N entre as duas primeiras
 
-<p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></P
+<p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></p>
 
 
 
