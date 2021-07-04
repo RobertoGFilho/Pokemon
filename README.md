@@ -123,7 +123,7 @@ Classe responsável por baixar e deserializar arquivo jason do endpoint https://
     
 <h2>Navegação</h2>
 
-Serviço de navegação de páginas "views" através da navegação de view models
+Injetado o serviço de navegação de páginas "views" através da navegação de view models
 
     public partial class App : Application
     {
