@@ -18,17 +18,63 @@ A extensão <a href="https://pt-br.reactjs.org/">Multilingual App Toolkit</a> fo
 * Inglês;
 * Português Brasileiro;
 
-<h2>Paginação de dados</h2>
-Estratégia utilizada para carregamento dos dados de forma automática apartir do banco de dados local após todos os registros exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
-
 <h2>Modelos</h2>
 Três classes principais <b>Pokemon, PokemonTypes e PokemonTypesPokemon</b> sendo que essa ultíma representa a ligação <b>N:N</b> entre as duas primeiras
 
 <p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></p>
 
-<h2>Injeção de dependências</h2>
+<h2>Paginação</h2>
+Estratégia utilizada para carregamento dos dados de forma automática, <b>por página de dados</b>, apartir do banco de dados local após todos os registros exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
 
-Utilizada para injetar o serviçode navegação entre as páginas "views" através da <b>interface INavegation</b>. Essa técnica permite que a navegaçãoseja feitra entre as "view models" mas exibindo as respectivas páginas associadas;
+<h2>API REST</h2>
+
+Classe Service responsável por baixar e deserializar arquivo jason do endpoint https://pokeapi.co/api/v2/
+
+    public static class Service
+    {
+        static HttpClient client = new HttpClient();
+        
+        public static async Task<IList<Pokemon>> GetPokemonsAsync(int offset, int limit)
+        {
+
+            try
+            {
+                var current = Connectivity.NetworkAccess;
+
+                if (current == NetworkAccess.Internet)
+                {
+
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Get,
+                        RequestUri = new Uri($"https://pokeapi.co/api/v2/pokemon/?offset={offset}&limit={limit}"),
+                    };
+
+                    using (var response = await client.SendAsync(request))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonString = await response.Content.ReadAsStringAsync();
+                            PokemonsService pokemonsService = JsonSerializer.Deserialize<PokemonsService>(jsonString);
+
+                            if (pokemonsService.Pokemons?.Count > 0)
+                            {
+                                return pokemonsService.Pokemons;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception) { }
+
+            return null;
+        }
+        
+    }
+    
+<h2>Injeção de Dependencia</h2>
+
+Serviço de navegação de páginas "views" através da navegação de view models
 
     public partial class App : Application
     {
