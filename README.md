@@ -26,6 +26,15 @@ Três classes principais <b>Pokemon, PokemonTypes e PokemonTypesPokemon</b> send
 <h2>Paginação</h2>
 Estratégia utilizada para carregamento dos dados de forma automática, <b>por página de dados</b>, apartir do banco de dados local após todos os registros exibidos novas páginas de dados são baixadas da API REST https://pokeapi.co e armazenadas localmente. 
 
+<h2>Image Font</h2>
+
+Arquivos de fontes true type utilizado para exibir icones ao inves de images
+* icofont.ttf;
+* material.ttf;
+
+
+
+
 <h2>API REST</h2>
 
 Classe Service responsável por baixar e deserializar arquivo jason do endpoint https://pokeapi.co/api/v2/
@@ -36,18 +45,17 @@ Classe Service responsável por baixar e deserializar arquivo jason do endpoint 
         
         public static async Task<IList<Pokemon>> GetPokemonsAsync(int offset, int limit)
         {
-
             try
             {
                 var current = Connectivity.NetworkAccess;
 
                 if (current == NetworkAccess.Internet)
                 {
-
                     var request = new HttpRequestMessage
                     {
                         Method = HttpMethod.Get,
-                        RequestUri = new Uri($"https://pokeapi.co/api/v2/pokemon/?offset={offset}&limit={limit}"),
+                        RequestUri = new Uri($"https://pokeapi.co/api/v2/pokemon/
+                        ?offset={offset}&limit={limit}"),
                     };
 
                     using (var response = await client.SendAsync(request))
@@ -55,7 +63,8 @@ Classe Service responsável por baixar e deserializar arquivo jason do endpoint 
                         if (response.IsSuccessStatusCode)
                         {
                             var jsonString = await response.Content.ReadAsStringAsync();
-                            PokemonsService pokemonsService = JsonSerializer.Deserialize<PokemonsService>(jsonString);
+                            PokemonsService pokemonsService = 
+                            JsonSerializer.Deserialize<PokemonsService>(jsonString);
 
                             if (pokemonsService.Pokemons?.Count > 0)
                             {
