@@ -40,6 +40,21 @@ Utilizada para injetar o serviçode navegação entre as páginas "views" atrav�
         }   
      }
      
+     public class Navigation : Interfaces.INavigation
+     {
+        public async Task<TViewModel> GoToAsync<TViewModel>() where TViewModel : BaseViewModel
+        {
+            await Shell.Current.GoToAsync(typeof(TViewModel).Name);
+            return Shell.Current.CurrentPage.BindingContext as TViewModel;
+        }
+
+        public Task GoToBackAsync()
+        {
+            return Shell.Current.GoToAsync("..");
+
+        }
+     }
+     
     public abstract class BaseViewModel : MvvmHelpers.BaseViewModel
     {
         ...
