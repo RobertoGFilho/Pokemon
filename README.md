@@ -3,7 +3,7 @@ Aplicação desenvolvida em Xamarin Forms, consumindo <b>API REST</b> https://po
 
 ![Screenshot](https://user-images.githubusercontent.com/68563526/124325397-e591a880-db5a-11eb-8835-c9cdbb7651e4.png)
 
-<h2>🛠 Bibliotecas</h2>
+<h2>Bibliotecas</h2>
 
 * Microsoft.EntityFrameworkCore.Sqlite : camada de abstração do banco de dados e C# utilizado junto com linq;
 * Microsoft.EntityFrameworkCore.Tools : usado para migração de dados;
@@ -20,7 +20,7 @@ A extensão <a href="https://developer.microsoft.com/en-us/windows/downloads/mul
 
 <h2>Modelos</h2>
 Três classes principais <b>Pokemon, PokemonTypes e PokemonTypesPokemon</b> sendo que essa ultíma representa a ligação <b>N:N</b> entre as duas primeiras
-
+<p></p>
 <p align="center"><img width="536" alt="ModelsDiagram" src="https://user-images.githubusercontent.com/68563526/124351276-c6812e00-dbcf-11eb-9037-be0d072be859.png"></p>
 
 <h2>Paginação</h2>
@@ -28,12 +28,9 @@ Estratégia utilizada para carregamento dos dados de forma automática, <b>por p
 
 <h2>Image Font</h2>
 
-Arquivos de fontes true type utilizado para exibir icones ao inves de images
+Arquivos de fontes true type utilizado para exibir icones ao inves de images na barra de ações
 * icofont.ttf;
 * material.ttf;
-
-
-
 
 <h2>API REST</h2>
 
@@ -119,5 +116,9 @@ Serviço de navegação de páginas "views" através da navegação de view mode
 
 <h2>C# Generics com Herança</h2>
 
-<b>Aplicadas as duas técnicas de programação, combinadas</b>, para definir padrões de comportamentos na arquitetura do app e permitir o máximo de reaproveitamento do código.
+<b>As duas técnicas combinadas</b>, foram utilizadas para definir padrões de comportamentos na arquitetura do app e permitir o máximo de reaproveitamento do código.
+
+<h2>Conclusão</h2>
+
+A finalidade desse projeto é demostrar as boas práticas de programação em aplicações Xamarin Forms.
 
