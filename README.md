@@ -14,7 +14,7 @@ Aplicação desenvolvida em Xamarin Forms, consumindo <b>API REST</b> https://po
 
 <h2>Idiomas</h2>
 
-A extensão <a href="https://pt-br.reactjs.org/">Multilingual App Toolkit</a> foi utilizado para gerar os arquivors de tradução disponível na pasta de \Recursos para os idiomas:
+A extensão <a href="https://developer.microsoft.com/en-us/windows/downloads/multilingual-app-toolkit/">Multilingual App Toolkit</a> foi utilizado para gerar os arquivors de tradução disponível na pasta de \Recursos para os idiomas:
 * Inglês;
 * Português Brasileiro;
 
