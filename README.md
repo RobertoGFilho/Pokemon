@@ -108,7 +108,8 @@ Strategy used to load data automatically, <b>data pages</b>, from local database
                             pokemon.Weight = pokemonDetails.Weight;
                             pokemon.Image = pokemonDetails.Sprite?.Image;
 
-                            var typeDetailsNames = pokemonDetails.TypeDetailsServices?.Select(s => s.PokemonType?.Name);
+                            var typeDetailsNames = pokemonDetails.TypeDetailsServices?
+			    .Select(s => s.PokemonType?.Name);
 
                             if (typeDetailsNames.Count() > 0)
                             {
